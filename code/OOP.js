@@ -5,20 +5,26 @@ SIMPLE BANK ACCOUNT MANAGEMENT SYSTEM
 */ 
 
 let Account = function(name, accNum, age, balance) {
-	//ALL ACCOUNT USERS MUST BE ABOVE 10 YEARS OLD
+	//ALL ACCOUNT USERS MUST BE ABOVE 18 YEARS OLD
 	if (age < 18) {
 		return "INVALID ACCOUNT CREATED \nAccount User Must be 18 years and above!";
 	} else {
 			//ACCOUNT OBJECT PROPERTIES
 		this.Name = name;
 		this.Age = age;
-		this.AccNum = accNum;
-		if(balance){
+		if (accNum.length === 10 && typeof(accNum) === "Number") {
+			this.AccNum = accNum;
+		} 
+		else {
+			console.log("INVALID NUMBER! \nAccount Number should be up to 10 digits");
+		}
+		if (balance){
 			this.Balance = balance;
 		}
 		else{
 			this.Balance = 0;
 		}
+		
 	}
 }
 //DEPOSIT FUNCTION INHERITS FROM THE PARENT ACCOUNT CLASS
